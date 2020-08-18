@@ -10,7 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_14_225908) do
+ActiveRecord::Schema.define(version: 2020_08_18_005052) do
+
+  create_table "articles", force: :cascade do |t|
+    t.text "title"
+    t.text "channnel_name"
+    t.text "content"
+    t.text "thumbnail"
+    t.integer "status"
+    t.datetime "start_time"
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_articles_on_user_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -18,6 +31,10 @@ ActiveRecord::Schema.define(version: 2020_08_14_225908) do
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
+    t.text "login_id"
+    t.text "name"
+    t.text "icon"
+    t.text "profile"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_users_on_email", unique: true
