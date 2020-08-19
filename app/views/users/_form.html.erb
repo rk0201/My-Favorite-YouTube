@@ -1,0 +1,25 @@
+<%= form_for @user do |form| %>
+  <div class="field">
+    <%= form.label :ユーザーID %>
+    <%= form.text_field :login_id %>
+  </div>
+  
+  <div class="field">
+    <%= form.label :ユーザー名 %>
+    <%= form.text_area :name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :アイコン画像 %>
+    <%= form.text_area :icon %>
+  </div>
+
+  <div class="field">
+    <%= form.label :プロフィール  %>
+    <%= form.text_area :profile %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

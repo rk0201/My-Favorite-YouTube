@@ -1,13 +1,12 @@
 <h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
 
 <p>
-  <strong>Login:</strong>
+  <strong>ユーザーID:</strong>
   <%= @user.login_id %>
 </p>
 
 <p>
-  <strong>Name:</strong>
+  <strong>ユーザー名:</strong>
   <%= @user.name %>
 </p>
 
@@ -17,13 +16,13 @@
 </p>
 
 <p>
-  <strong>Profile:</strong>
+  <strong>プロフィール:</strong>
   <%= @user.profile %>
 </p>
 
  <% if @user.id == current_user.id %>
     <td>
-    <%= link_to "編集", edit_user_path(@user), class: "button is-primary" %>
+    <%= link_to "編集", edit_user_path(@user)%>
     </td>
 <% end %>
 

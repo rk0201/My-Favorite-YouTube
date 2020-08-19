@@ -1,31 +1,6 @@
 <h1>Users#edit</h1>
-<p>Find me in app/views/users/edit.html.erb</p>
 
-  <%= form_for @user do |f| %>
-  <div class="field">
-    <%= form.label :login_id %>
-    <%= form.text_area :login_id %>
-  </div>
-  
-  <div class="field">
-    <%= form.label :name %>
-    <%= form.text_area :name %>
-  </div>
+<%= render 'form', user: @user %>
 
-  <div class="field">
-    <%= form.label :icon %>
-    <%= form.text_area :icon %>
-  </div>
-
-  <div class="field">
-    <%= form.label :profile %>
-    <%= form.text_area :profile %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-<% end %>
-
-<%= link_to 'Show', @user %> |
-<%= link_to 'Back', users_path %>
+<%= link_to 'ユーザーページへ', @user %> 
+<%= link_to 'ユーザー一覧', users_path %>

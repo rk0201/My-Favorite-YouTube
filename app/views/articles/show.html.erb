@@ -1,17 +1,17 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Title:</strong>
+  <strong>動画タイトル:</strong>
   <%= @article.title %>
 </p>
 
 <p>
-  <strong>Channnel name:</strong>
+  <strong>チャンネル:</strong>
   <%= @article.channnel_name %>
 </p>
 
 <p>
-  <strong>Content:</strong>
+  <strong>ひとこと:</strong>
   <%= @article.content %>
 </p>
 
@@ -31,9 +31,15 @@
 </p>
 
 <p>
-  <strong>User:</strong>
-  <%= @article.user %>
+  <strong>記事投稿者:</strong>
+  <%= link_to user_path(@article.user)do %>
+    <%= @article.user.name %>
+　<% end %>
 </p>
 
-<%= link_to 'Edit', edit_article_path(@article) %> |
-<%= link_to 'Back', articles_path %>
+<% if @article.user.id == current_user.id %>
+<%= link_to '編集', edit_article_path(@article) %>
+<%= link_to '削除', article_path(@article), method: :delete, data: { confirm: '本当に削除してよろしいですか?' } %>
+<% end %>
+
+<%= link_to '記事一覧へ', articles_path %>

@@ -8,6 +8,7 @@ class ArticlesController < ApplicationController
 
   # GET /articles/1
   def show
+    @article = Article.find(params[:id])
   end
 
   # GET /articles/new
@@ -22,6 +23,7 @@ class ArticlesController < ApplicationController
   # POST /articles
   def create
     @article = Article.new(article_params)
+    @article.user_id = current_user.id
 
     if @article.save
       redirect_to @article, notice: 'Article was successfully created.'
