@@ -26,7 +26,7 @@ class ArticlesController < ApplicationController
     @article.user_id = current_user.id
 
     if @article.save
-      redirect_to @article, notice: 'Article was successfully created.'
+      redirect_to @article, notice: '記事を投稿しました。'
     else
       render :new
     end
@@ -35,7 +35,7 @@ class ArticlesController < ApplicationController
   # PATCH/PUT /articles/1
   def update
     if @article.update(article_params)
-      redirect_to @article, notice: 'Article was successfully updated.'
+      redirect_to @article, notice: '投稿内容を更新しました。'
     else
       render :edit
     end
@@ -44,7 +44,7 @@ class ArticlesController < ApplicationController
   # DELETE /articles/1
   def destroy
     @article.destroy
-    redirect_to articles_url, notice: 'Article was successfully destroyed.'
+    redirect_to articles_url, notice: '投稿を削除しました。'
   end
 
   private
