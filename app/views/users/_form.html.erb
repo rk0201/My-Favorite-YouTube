@@ -11,7 +11,8 @@
 
   <div class="field">
     <%= form.label :アイコン画像 %>
-    <%= form.text_area :icon %>
+    <%= form.file_field :icon, class: "image" %>
+    <%= f.check_box :remove_img %>画像を削除する %>
   </div>
 
   <div class="field">

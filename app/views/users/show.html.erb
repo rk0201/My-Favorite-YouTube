@@ -13,6 +13,7 @@
 <p>
   <strong>Icon:</strong>
   <%= @user.icon %>
+  <%= image_tag @user.icon.url if @post.img?%>
 </p>
 
 <p>
