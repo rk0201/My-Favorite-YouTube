@@ -13,12 +13,12 @@
 
   <div class="field">
     <%= form.label :動画タイトル %>
-    <%= form.text_area :title %>
+    <%= form.text_field :title %>
   </div>
 
   <div class="field">
     <%= form.label :チャンネル名 %>
-    <%= form.text_area :channnel_name %>
+    <%= form.text_field :channnel_name %>
   </div>
 
   <div class="field">
@@ -27,23 +27,13 @@
   </div>
 
   <div class="field">
-    <%= form.label :thumbnail %>
-    <%= form.text_area :thumbnail %>
+    <%= form.label :動画リンク %>
+    <%= form.text_field :thumbnail %>
   </div>
 
   <div class="field">
-    <%= form.label :status %>
-    <%= form.select :status, Article.statuses.keys.to_a, {} %>
-  </div>
-
-  <div class="field">
-    <%= form.label :start_time %>
-    <%= form.datetime_select :start_time %>
-  </div>
-
-  <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name %>
+    <%= form.label :公開状況 %>
+    <%= form.select :status,  Article.statuses.keys.map {|k| [I18n.t("enums.article.status.#{k}"), k]}  %>
   </div>
 
   <div class="actions">

@@ -1,29 +1,28 @@
-<h1>Users#show</h1>
+<div class="media">
+  <%= image_tag @user.icon.url, width: '20%' if @user.icon? %>
+  <div class="media-body">
+    <h1 class="mt-0"><%= @user.name %></h1>
+    <p><%= @user.login_id %></p>
+    <h3><%= @user.profile %></h3>
+  </div>
+</div>
 
-<p>
-  <strong>ユーザーID:</strong>
-  <%= @user.login_id %>
-</p>
+<br>
 
-<p>
-  <strong>ユーザー名:</strong>
-  <%= @user.name %>
-</p>
-
-<p>
-  <strong>Icon:</strong>
-  <%= @user.icon %>
-  <%= image_tag @user.icon.url if @post.img?%>
-</p>
-
-<p>
-  <strong>プロフィール:</strong>
-  <%= @user.profile %>
-</p>
+<h2><%= @user.name + "'s Favorite YouTube" %></h2>
+<% @user.articles.each do |article| %>
+ <tr>
+  <td><%= link_to article.title, article_path(article) %></td>
+  <td><iframe width="320" height="180" src="https://www.youtube.com/embed/<%=article.thumbnail%>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></td>
+  <td><%= article.updated_at.strftime("%Y-%m-%d %H:%M") %></td>
+ </tr>
+<% end %>
 
  <% if @user.id == current_user.id %>
     <td>
     <%= link_to "編集", edit_user_path(@user)%>
     </td>
 <% end %>
+
+<%= link_to 'ユーザー一覧へ', users_path %>
 

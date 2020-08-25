@@ -23,6 +23,10 @@ class ArticlesController < ApplicationController
   # POST /articles
   def create
     @article = Article.new(article_params)
+    url = params[:article][:thumbnail]
+    url = url.last(11)
+    @article.thumbnail = url
+    
     @article.user_id = current_user.id
 
     if @article.save

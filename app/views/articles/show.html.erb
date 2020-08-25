@@ -1,9 +1,5 @@
 <p id="notice"><%= notice %></p>
-
-<p>
-  <strong>動画タイトル:</strong>
-  <%= @article.title %>
-</p>
+<h1><%= @article.title %></h1>
 
 <p>
   <strong>チャンネル:</strong>
@@ -11,23 +7,25 @@
 </p>
 
 <p>
+  <strong>Thumbnail:</strong>
+  <iframe width="560" height="315" src="https://www.youtube.com/embed/<%= @article.thumbnail%>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</p>
+
+<p>
   <strong>ひとこと:</strong>
   <%= @article.content %>
 </p>
 
-<p>
-  <strong>Thumbnail:</strong>
-  <%= @article.thumbnail %>
-</p>
-
-<p>
+<% if @article.user.id == current_user.id %>
+ <p>
   <strong>Status:</strong>
   <%= @article.status %>
-</p>
+ </p>
+<% end %>
 
 <p>
   <strong>Start time:</strong>
-  <%= @article.start_time %>
+  <%= @article.updated_at.strftime("%Y-%m-%d %H:%M") %>
 </p>
 
 <p>
@@ -38,8 +36,8 @@
 </p>
 
 <% if @article.user.id == current_user.id %>
-<%= link_to '編集', edit_article_path(@article) %>
-<%= link_to '削除', article_path(@article), method: :delete, data: { confirm: '本当に削除してよろしいですか?' } %>
+ <%= link_to '編集', edit_article_path(@article) %>
+ <%= link_to '削除', article_path(@article), method: :delete, data: { confirm: '本当に削除してよろしいですか?' } %>
 <% end %>
 
 <%= link_to '記事一覧へ', articles_path %>
