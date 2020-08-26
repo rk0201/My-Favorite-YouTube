@@ -22,13 +22,16 @@
         <td><%= link_to article.user.name,user_path(article.user) %></td>
         <td>
           <% if current_user.already_favorited?(article) %>
-              <%= link_to 'いいねを外す', article_favorites_path(article), method: :delete %>
-                
+              <%= link_to article_favorites_path(article), method: :delete do %>
+                <i class="fas fa-heart"></i>
+              <% end %>
+              <%= article.favorites.count %>
           <% else %>
-              <%= link_to 'いいね', article_favorites_path(article), method: :post %>
-                
+              <%= link_to article_favorites_path(article), method: :post do %>
+                <i class="far fa-heart"></i>
+              <% end %>
+              <%= article.favorites.count %>
           <% end %>
-          <%= article.favorites.count %>
         </td>
       </tr>
     <% end %>

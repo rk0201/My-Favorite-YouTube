@@ -1,6 +1,6 @@
 main {
-  height: calc(100vh - 50px);
-  min-height: calc(100vh - 50px);
+  height: calc(100vw - 50px);
+  min-height: calc(100vw - 50px);
   padding-top: 60px;
 }
 
@@ -9,5 +9,15 @@ footer {
 }
 
 .bg-home {
-  background-color: #1e90ff;
+  background-image: url(https://images.unsplash.com/photo-1543185377-99cd16011803?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80);
+  //繰り返さない
+  background-repeat: no-repeat;
+  //縦横比は保持して、背景領域を完全に覆う最小サイズになるように背景画像を拡大縮小する
+  background-size: cover;
+  background-position: center top;
+  //背景固定
+  background-attachment: fixed;
+  //高さは100%
+  height: 100vh;
+  width: 100vw;
 }

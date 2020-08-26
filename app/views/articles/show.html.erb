@@ -12,6 +12,21 @@
 </p>
 
 <p>
+  <strong>いいね:</strong>
+  <% if current_user.already_favorited?(@article) %>
+    <%= link_to article_favorites_path(@article), method: :delete do %>
+      <i class="fas fa-heart"></i>
+    <% end %>
+    <%= @article.favorites.count %>
+    <% else %>
+    <%= link_to article_favorites_path(@article), method: :post do %>
+      <i class="far fa-heart"></i>
+    <% end %>
+    <%= @article.favorites.count %>
+  <% end %>
+</p>
+
+<p>
   <strong>ひとこと:</strong>
   <%= @article.content %>
 </p>
