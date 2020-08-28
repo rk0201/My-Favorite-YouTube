@@ -1,0 +1,22 @@
+<h1>いいね一覧</h1>
+<% @articles.each do |article| %>
+      <tr>
+        <td><%= link_to article.title, article_path(article) %></td>
+        <td><iframe width="320" height="180" src="https://www.youtube.com/embed/<%=article.thumbnail%>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></td>
+        <td><%= article.updated_at.strftime("%Y-%m-%d %H:%M") %></td>
+        <td><%= link_to article.user.name,user_path(article.user) %></td>
+        <td>
+          <% if current_user.already_favorited?(article) %>
+              <%= link_to article_favorites_path(article), method: :delete do %>
+                <i class="fas fa-heart"></i>
+              <% end %>
+              <%= article.favorites.count %>
+          <% else %>
+              <%= link_to article_favorites_path(article), method: :post do %>
+                <i class="far fa-heart"></i>
+              <% end %>
+              <%= article.favorites.count %>
+          <% end %>
+        </td>
+      </tr>
+<% end %>
