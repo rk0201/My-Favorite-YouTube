@@ -1,0 +1,10 @@
+<% if user_signed_in? %>
+    <% if current_user.already_favorited?(article) %>
+        <%=link_to article_favorites_path(article.id), method: :delete, remote: true, class: "fas fa-heart" do%><% end %>
+        <%= article.favorites.count %>
+    <% else %>
+        <%=link_to article_favorites_path(article.id), method: :post, remote: true, class: "far fa-heart" do%><% end %>
+        <%= article.favorites.count %>
+    <% end %>
+
+<% end %>

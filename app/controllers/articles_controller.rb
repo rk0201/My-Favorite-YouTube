@@ -9,6 +9,8 @@ class ArticlesController < ApplicationController
   # GET /articles/1
   def show
     @article = Article.find(params[:id])
+    @comment = Comment.new 
+    @comments = @article.comments.order(created_at: :desc)
   end
 
   # GET /articles/new
@@ -59,6 +61,6 @@ class ArticlesController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def article_params
-      params.require(:article).permit(:title, :channnel_name, :content, :thumbnail, :status, :start_time, :user_id)
+      params.require(:article).permit(:title, :channnel_name, :content, :thumbnail, :status, :start_time, :user_id, :comment)
     end
 end

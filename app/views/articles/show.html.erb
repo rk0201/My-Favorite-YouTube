@@ -13,17 +13,9 @@
 
 <p>
   <strong>いいね:</strong>
-  <% if current_user.already_favorited?(@article) %>
-    <%= link_to article_favorites_path(@article), method: :delete do %>
-      <i class="fas fa-heart"></i>
-    <% end %>
-    <%= @article.favorites.count %>
-    <% else %>
-    <%= link_to article_favorites_path(@article), method: :post do %>
-      <i class="far fa-heart"></i>
-    <% end %>
-    <%= @article.favorites.count %>
-  <% end %>
+  <div id="favorites_buttons_<%= @article.id %>">
+    <%= render partial: 'favorites/favorite', locals: {article: @article} %>
+  </div>
 </p>
 
 <p>
@@ -31,10 +23,28 @@
   <%= @article.content %>
 </p>
 
+<div class="row">
+    <ul>
+        <li class="comment-create">
+            <h3 class="text-left title">コメント</h3>
+        </li>
+        <li id="comments_area">
+            <%= render partial: 'comments/index', locals: { comments: @comments } %>
+        </li>
+    </ul>
+    <hr>
+    <% if user_signed_in? %>
+        <div class="comment-create">
+            <h3 class="text-left">レビューを投稿する</h3>
+            <%= render partial: 'comments/form', locals: { comment: @comment, article: @article } %>
+        </div>
+    <% end %>
+</div>
+
 <% if @article.user.id == current_user.id %>
  <p>
   <strong>Status:</strong>
-  <%= @article.status %>
+  <%= @article.status_i18n %>
  </p>
 <% end %>
 
