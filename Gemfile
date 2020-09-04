@@ -73,3 +73,5 @@ gem 'mini_magick'
 
 gem 'rails-i18n'
 gem 'enum_help' 
+
+gem 'acts-as-taggable-on', '~> 6.0'

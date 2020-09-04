@@ -35,6 +35,11 @@
     <%= form.label :公開状況 %>
     <%= form.select :status,  Article.statuses.keys.map {|k| [I18n.t("enums.article.status.#{k}"), k]}  %>
   </div>
+  
+  <div class="field">
+    <%= form.label :タグ %>
+    <%= form.text_field :tag_list, value: Article.tag_list.join(','), class: "form-control" %>
+  </div>
 
   <div class="actions">
     <%= form.submit %>

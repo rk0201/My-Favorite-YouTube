@@ -4,6 +4,12 @@ class ArticlesController < ApplicationController
   # GET /articles
   def index
     @articles = Article.all
+    @tags = ActsAsTaggableOn::Tag.all
+    if params[:tag]
+      @article = Article.tagged_with(params[:tag])
+    else
+      @articles = Article.all
+    end
   end
 
   # GET /articles/1
@@ -11,11 +17,13 @@ class ArticlesController < ApplicationController
     @article = Article.find(params[:id])
     @comment = Comment.new 
     @comments = @article.comments.order(created_at: :desc)
+    
   end
 
   # GET /articles/new
   def new
     @article = Article.new
+    @tags = ActsAsTaggableOn::Tag.all
   end
 
   # GET /articles/1/edit
@@ -34,6 +42,7 @@ class ArticlesController < ApplicationController
     if @article.save
       redirect_to @article, notice: '記事を投稿しました。'
     else
+      @tags = ActsAsTaggableOn::Tag.all
       render :new
     end
   end
@@ -61,6 +70,6 @@ class ArticlesController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def article_params
-      params.require(:article).permit(:title, :channnel_name, :content, :thumbnail, :status, :start_time, :user_id, :comment)
+      params.require(:article).permit(:title, :channnel_name, :content, :thumbnail, :status, :start_time, :user_id, :comment, tag_list: [])
     end
 end

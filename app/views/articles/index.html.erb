@@ -25,6 +25,7 @@
              <%= render partial: 'favorites/favorite', locals: { article: article} %>
           </div>
         </td>
+        <td><%= render partial: 'articles/tag_list', tag_list: article.tag_list %></td>
       </tr>
     <% end %>
   </tbody>

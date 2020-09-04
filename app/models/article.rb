@@ -1,4 +1,5 @@
 class Article < ApplicationRecord
+  acts_as_taggable
   belongs_to :user
   has_many :favorites,dependent: :destroy
   has_many :comments,dependent: :destroy
@@ -9,4 +10,5 @@ class Article < ApplicationRecord
     public: 0, #公開
     private: 1 #非公開
   },_prefix: true
+  
 end
