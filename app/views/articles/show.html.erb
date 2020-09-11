@@ -5,6 +5,11 @@
     <%= link_to user_path(@article.user)do %>
       　<%= @article.user.name %>
     <% end %>
+    
+    <div align="right">
+    <i class="fas fa-clock"></i>
+      <%= @article.updated_at.strftime("%Y-%m-%d %H:%M") + 'に公開' %>
+    </div>
   </div>
     
   <%# 動画　%>
@@ -19,7 +24,7 @@
       
       <%# いいね　%>
       <div class="favorites_buttons_<%= @article.id %>">
-    　　　　<%= render partial: 'favorites/favorite', locals: {article: @article} %>
+        <%= render partial: 'favorites/favorite', locals: {article: @article} %>
   　　</div>
     </h3>
     
@@ -45,17 +50,19 @@
     
     <%# コメント　%>
     <li class="list-group-item">
-      <div id="comments_area">
-            <%= render partial: 'comments/index', locals: { comments: @comments } %>
-      </div>
+      
       
       <% if user_signed_in? %>
         <div class="comment-create">
-            <i class="fas fa-pen-square"></i>
-            <p class="text-left">レビューを投稿する</p>
-            <%= render partial: 'comments/form', locals: { comment: @comment, article: @article } %>
+          <i class="fas fa-pen-square"></i>
+          <p class="text-left">レビューを投稿する</p>
+          <%= render partial: 'comments/form', locals: { comment: @comment, article: @article } %>
         </div>
       <% end %>
+      
+      <div id="comments_area">
+        <%= render partial: 'comments/index', locals: { comments: @comments } %>
+      </div>
     </li>
     
     <%# 投稿日時　%>

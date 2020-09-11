@@ -3,7 +3,7 @@ class ArticlesController < ApplicationController
 
   # GET /articles
   def index
-    @articles = Article.all
+    @articles = Article.where(status: :public)
     if params[:tag]
       @articles = Article.tagged_with("#{params[:tag]}")
     end
