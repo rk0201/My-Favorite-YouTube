@@ -4,10 +4,10 @@ Rails.application.routes.draw do
   root to: "home#index"
   
   resources :users do
-    resources :favorites
     member do
-          get :following, :followers
+       get :following, :followers
     end
+    resources :favorites
   end
   
   resources :relationships, only: [:create, :destroy]
@@ -16,4 +16,5 @@ Rails.application.routes.draw do
     resource :favorites, only: [:create, :destroy]
     resources :comments, only: [:create, :destroy]
   end
+  get 'tags/:tag', to: 'articles#index', as: :tag
 end

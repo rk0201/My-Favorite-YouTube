@@ -1,68 +1,85 @@
-<p id="notice"><%= notice %></p>
-<h1><%= @article.title %></h1>
-
-<p>
-  <strong>チャンネル:</strong>
-  <%= @article.channnel_name %>
-</p>
-
-<p>
-  <strong>Thumbnail:</strong>
-  <iframe width="560" height="315" src="https://www.youtube.com/embed/<%= @article.thumbnail%>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-</p>
-
-<p>
-  <strong>いいね:</strong>
-  <div id="favorites_buttons_<%= @article.id %>">
-    <%= render partial: 'favorites/favorite', locals: {article: @article} %>
+<div class="card" style="width: 50rem; margin:0 auto;">
+  <div class="card-body">
+    
+    <%# ユーザー名　%>
+    <%= link_to user_path(@article.user)do %>
+      　<%= @article.user.name %>
+    <% end %>
   </div>
-</p>
+    
+  <%# 動画　%>
+  <iframe class="card-img-top" style="width: 50rem; height: 28rem; margin:0 auto; " src="https://www.youtube.com/embed/<%= @article.thumbnail%>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+  
+  <div class="card-body">
+    <h3 class="card-title">
+      
+      <%# タイトル　%>
+      <i class="fas fa-caret-square-right"></i>
+      <%= @article.title %>
+      
+      <%# いいね　%>
+      <div class="favorites_buttons_<%= @article.id %>">
+    　　　　<%= render partial: 'favorites/favorite', locals: {article: @article} %>
+  　　</div>
+    </h3>
+    
+    <%# チャンネル名　%>
+    <p class="card-channnel">
+    <i class="fas fa-tv"></i>
+    <%= @article.channnel_name %></p>
+  </div>
 
-<p>
-  <strong>ひとこと:</strong>
-  <%= @article.content %>
-</p>
-
-<div class="row">
-    <ul>
-        <li class="comment-create">
-            <h3 class="text-left title">コメント</h3>
-        </li>
-        <li id="comments_area">
+  
+  <ul class="list-group list-group-flush">
+    
+    <%# ひとこと・タグ　%>
+    <li class="list-group-item">
+      
+      <%= @article.content %>
+      <p>
+        <% @article.tag_list.each do |tag| %>
+          <span class="badge badge-primary.mr-1.p-2"><%= tag %></span>
+        <% end %>
+      </p>
+    </li>
+    
+    <%# コメント　%>
+    <li class="list-group-item">
+      <div id="comments_area">
             <%= render partial: 'comments/index', locals: { comments: @comments } %>
-        </li>
-    </ul>
-    <hr>
-    <% if user_signed_in? %>
+      </div>
+      
+      <% if user_signed_in? %>
         <div class="comment-create">
-            <h3 class="text-left">レビューを投稿する</h3>
+            <i class="fas fa-pen-square"></i>
+            <p class="text-left">レビューを投稿する</p>
             <%= render partial: 'comments/form', locals: { comment: @comment, article: @article } %>
         </div>
-    <% end %>
+      <% end %>
+    </li>
+    
+    <%# 投稿日時　%>
+    <li class="list-group-item">
+     <p>
+      <i class="fas fa-clock"></i>
+      <%= @article.updated_at.strftime("%Y-%m-%d %H:%M") + 'に公開' %>
+    
+      <%# ログインユーザーの場合　%>
+      <% if @article.user.id == current_user.id %>
+      　<div style="text-align : right">
+          <%= link_to '編集', edit_article_path(@article) %>
+          <%= link_to '削除', article_path(@article), method: :delete, data: { confirm: '本当に削除してよろしいですか?' } %>
+          <%= @article.status_i18n %>
+        </div>
+      <% end %>
+     </p>
+    </li>
+  </ul>
+  
+  
+  
 </div>
 
-<% if @article.user.id == current_user.id %>
- <p>
-  <strong>Status:</strong>
-  <%= @article.status_i18n %>
- </p>
-<% end %>
 
-<p>
-  <strong>Start time:</strong>
-  <%= @article.updated_at.strftime("%Y-%m-%d %H:%M") %>
-</p>
-
-<p>
-  <strong>記事投稿者:</strong>
-  <%= link_to user_path(@article.user)do %>
-    <%= @article.user.name %>
-　<% end %>
-</p>
-
-<% if @article.user.id == current_user.id %>
- <%= link_to '編集', edit_article_path(@article) %>
- <%= link_to '削除', article_path(@article), method: :delete, data: { confirm: '本当に削除してよろしいですか?' } %>
-<% end %>
 
 <%= link_to '記事一覧へ', articles_path %>

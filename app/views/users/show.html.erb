@@ -1,41 +1,78 @@
-<div class="media">
-  <%= image_tag @user.icon.url, width: '20%' if @user.icon? %>
-  <div class="media-body">
-    <h1 class="mt-0"><%= @user.name %></h1>
-    <p><%= @user.login_id %></p>
-    
-    <div class="follower">
-      <%= link_to followers_user_path(@user) do %>
-          <h5 style="color: black;">フォロワー<%= @user.followers.count %>人</h5>
-      <% end %>
+<div class="card" style="width: 50rem; padding: 20px; margin:0 auto;">
+　<div class="container mt-5 px-5">
+  　<div class="row mt-5">
+    <!--左側-->
+    <div class="col-md-6 px-5">
+        <%# アイコン %>
+        <% if @user.icon? %>
+           <%= image_tag @user.icon.url, width: '50%'  %>
+        <% else %>
+           <image src="/assets/default.png" width= "50%">
+        <% end %> 
+        
     </div>
-    <div class="follow">
-      <%= link_to following_user_path(@user) do %>
-                <h5 style="color: black;">フォロー<%= @user.following.count %>人</h5>
-      <% end %>
-    </div>
-    <div>
-      <%= render "follow_form" %>
-    </div>
-    
-    <h3><%= @user.profile %></h3>
+
+    <!--右側-->
+    <div class="col-md-6">
+      
+      <%# ユーザーネーム %>
+      <h2 class="name"><%= @user.name %></h2>
+      
+      <%# ユーザーID %>
+      <p><%= @user.login_id %></p>
+      
+      <%# フォロワー %>
+      <div class="follower">
+      　<%= link_to followers_user_path(@user) do %>
+      　フォロワー
+          　<h5 id="followers" style="color: black;"><%= @user.followers.count %></h5>人
+      　<% end %>
+    　</div>
+    　
+    　<%# フォロー %>
+    　<div class="follow">
+      　<%= link_to following_user_path(@user) do %>
+      　フォロー中
+        　　<h5 id="following" style="color: black;"><%= @user.following.count %></h5>人
+      　<% end %>
+   　  </div>
+   　
+   　<%# フォローボタン %>  
+     <div>
+       <%= render "follow_form" %>
+     </div>
+     
+     <%# プロフィール文 %>
+     <p><%= @user.profile %></p>
+     
+    <%# ログインユーザーの場合、編集画面へ %>
     <% if @user.id == current_user.id %>
     　<td>
     　　<%= link_to "編集", edit_user_path(@user)%>
     　</td>
 　　<% end %>
+      
+    </div>
   </div>
 </div>
+
+
+
 
 <br>
 
 <h2><%= @user.name + "'s Favorite YouTube" %></h2>
 <% @user.articles.each do |article| %>
- <tr>
-  <td><%= link_to article.title, article_path(article) %></td>
-  <td><iframe width="320" height="180" src="https://www.youtube.com/embed/<%=article.thumbnail%>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></td>
-  <td><%= article.updated_at.strftime("%Y-%m-%d %H:%M") %></td>
- </tr>
+<ul class="list-group list-group-flush">
+ <li class="list-group-item">
+  <tr>
+   <td><h4><i class="fas fa-caret-square-right"></i><%= link_to article.title, article_path(article) %></h4></td>
+   <td><i class="fas fa-tv"></i><%= article.channnel_name %></td><br>
+   <td><%= article.content %></td><br>
+   <td><i class="fas fa-clock"></i><%= article.updated_at.strftime("%Y-%m-%d %H:%M") %></td>
+  </tr>
+ </li>
+</ul>
 <% end %>
 
 <% if @user.id == current_user.id %>
@@ -43,6 +80,7 @@
     <%= link_to 'いいね一覧へ', [@user, :favorites] %>
     </td>
 <% end %>
+</div>
 
 <%= link_to 'ユーザー一覧へ', users_path %>
 

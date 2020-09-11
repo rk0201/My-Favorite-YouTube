@@ -1,3 +1,4 @@
+<div class="card" style="width: 50rem; padding: 20px; margin:0 auto;">
 <%= form_with(model: article, local: true) do |form| %>
   <% if article.errors.any? %>
     <div id="error_explanation">
@@ -20,15 +21,20 @@
     <%= form.label :チャンネル名 %>
     <%= form.text_field :channnel_name %>
   </div>
-
+  
+  <div class="field">
+    <%= form.label :動画リンク %>
+    <%= form.text_field :thumbnail %>
+  </div>
+  
   <div class="field">
     <%= form.label :ひとこと %>
     <%= form.text_area :content %>
   </div>
 
   <div class="field">
-    <%= form.label :動画リンク %>
-    <%= form.text_field :thumbnail %>
+    <%= form.label :タグ %>
+    <%= form.text_field :tag_list, value:@article.tag_list.join(','), class: "form-control" %>
   </div>
 
   <div class="field">
@@ -36,12 +42,8 @@
     <%= form.select :status,  Article.statuses.keys.map {|k| [I18n.t("enums.article.status.#{k}"), k]}  %>
   </div>
   
-  <div class="field">
-    <%= form.label :タグ %>
-    <%= form.text_field :tag_list, value: Article.tag_list.join(','), class: "form-control" %>
-  </div>
-
   <div class="actions">
     <%= form.submit %>
   </div>
 <% end %>
+</div>

@@ -1,3 +1,4 @@
+<div class="card" style="width: 50rem; padding: 20px; margin:0 auto;">
 <%= form_for @user do |form| %>
   <div class="field">
     <%= form.label :ユーザーID %>
@@ -6,7 +7,7 @@
   
   <div class="field">
     <%= form.label :ユーザー名 %>
-    <%= form.text_area :name %>
+    <%= form.text_field :name %>
   </div>
 
   <div class="field">
@@ -24,3 +25,4 @@
     <%= form.submit %>
   </div>
 <% end %>
+</div>

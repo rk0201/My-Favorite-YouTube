@@ -1,11 +1,23 @@
+.btn-primary {
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+.btn-outline-primary{
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
 main {
-  height: calc(100vh - 50px);
-  min-height: calc(100vh - 50px);
+  
+  min-height: calc(100vh );
   padding-top: 60px;
+  padding-bottom: 60px;
 }
 
 footer {
-  height: 50px;
+  height: 60px;
+  bottom: 0;
 }
 
 .bg-home {
