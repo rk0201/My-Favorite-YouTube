@@ -1,6 +1,5 @@
 
 class FavoritesController < ApplicationController
-  
   def index
     @articles = Article.joins(:favorites).where(favorites: { user_id: params[:user_id] })
   end
