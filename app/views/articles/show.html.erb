@@ -1,6 +1,6 @@
 <%# ログインユーザーの場合　%>
 <% if @article.user.id == current_user.id %>
-  <div style="text-align : right; width: 50rem; margin:0 auto;">
+  <div style="text-align : right; width: 50rem; margin:20px auto;">
     <i class="fas fa-edit"></i><%= link_to '編集', edit_article_path(@article) %>
     <i class="fas fa-trash-alt"></i><%= link_to '削除', article_path(@article), method: :delete, data: { confirm: '本当に削除してよろしいですか?' } %>
     <i class="fas fa-lock-open"></i><%= @article.status_i18n %>
@@ -13,9 +13,9 @@
     <%# ユーザーアイコン　%>
     <div align="left">
     <% if @article.user.icon? %>
-      <%= image_tag @article.user.icon.url, width: '20px'  %>
+      <%= image_tag @article.user.icon.url, width: '30px'  %>
     <% else %>
-      <image src="/assets/default.png" width= "20px">
+      <image src="/assets/default.png" width= "30px">
     <% end %>
     
     <%# ユーザー名　%>
