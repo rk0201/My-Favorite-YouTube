@@ -38,7 +38,7 @@
 
   <div class="field">
     <i class="fas fa-tags"></i>
-    <%= form.label :タグ（複数タグ付する場合は半角のカンマで区切るようにしてください） %>
+    <%= form.label :タグ（複数タグを付ける場合は半角カンマで区切るようにしてください） %>
     <%= form.text_field :tag_list, value:@article.tag_list.join(','), class: "form-control" %>
   </div>
 

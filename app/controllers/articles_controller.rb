@@ -4,7 +4,7 @@ class ArticlesController < ApplicationController
 
   # GET /articles
   def index
-    @articles = Article.where(status: :public)
+    @articles = Article.where(status: :public).order(created_at: :desc)
     if params[:tag]
       @articles = Article.tagged_with("#{params[:tag]}")
     end

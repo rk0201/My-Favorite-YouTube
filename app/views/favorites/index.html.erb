@@ -1,8 +1,8 @@
-<h1>いいね一覧</h1>
-<div class="row">
+<h1 style="width: 60rem; padding: 20px; margin:0 auto;"><i class="far fa-heart"></i>いいね一覧</h1>
+<div class="row" style="width: 60rem; margin:0 auto;">
 <% @articles.each do |article| %>
-<div class="card" style="width: 18rem; margin:10px;">
-  <iframe class="card-img-top" style="width: 18rem; height: 12rem; margin:0 auto; " src="https://www.youtube.com/embed/<%= article.thumbnail%>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<div class="card" style="width: 18rem; margin:15px;">
+  <iframe class="card-img-top" style="width: 18rem; height: 10rem; margin:0 auto;"  src="https://www.youtube.com/embed/<%= article.thumbnail%>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
   <div class="card-body">
     <h5 class="card-title"><%= link_to article.title, article_path(article) %></h5>

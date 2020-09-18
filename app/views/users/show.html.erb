@@ -49,6 +49,7 @@
     <% if @user.id == current_user.id %>
     　<td>
     　　<%= link_to "編集", edit_user_path(@user)%>
+    　　<%= link_to 'いいね一覧へ', [@user, :favorites] %>
     　</td>
 　　<% end %>
       
@@ -58,13 +59,11 @@
 </div>
 
 
-
-<br>
 <%# 投稿一覧 %>
 <div class="row" style="width: 60rem; margin:0 auto;">
 <% @user.articles.each do |article| %>
-  <div class="card" style="width: 18rem; margin:10px;">
-    <iframe class="card-img-top" style="width: 18rem; height: 12rem; margin:0 auto; " src="https://www.youtube.com/embed/<%= article.thumbnail%>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+  <div class="card" style="width: 18rem; margin:15px ;">
+    <iframe class="card-img-top" style="width: 18rem; height: 10rem; margin:0 auto; " src="https://www.youtube.com/embed/<%= article.thumbnail%>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
   <div class="card-body">
     <h5 class="card-title"><%= link_to article.title, article_path(article) %></h5>
@@ -75,13 +74,5 @@
 
 
 
-<% if @user.id == current_user.id %>
-    <td>
-    <%= link_to 'いいね一覧へ', [@user, :favorites] %>
-    </td>
-<% end %>
 
 
-<div style="width: 50rem; margin:0 auto;">
- <%= link_to 'ユーザー一覧へ', users_path %>
-</div>
