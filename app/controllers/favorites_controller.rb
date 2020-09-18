@@ -1,6 +1,6 @@
 
 class FavoritesController < ApplicationController
-  before_action :authenticate_user!
+  
   def index
     @articles = Article.joins(:favorites).where(favorites: { user_id: params[:user_id] })
   end
