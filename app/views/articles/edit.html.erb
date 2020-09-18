@@ -1,6 +1,8 @@
-<h1>記事の編集</h1>
+<h1 style="width: 50rem; margin:20px auto;"><i class="fas fa-edit"></i> 記事の編集</h1>
 
 <%= render 'form', article: @article %>
 
-<%= link_to '記事へ', @article %> 
-<%= link_to '投稿一覧', articles_path %>
+<div style="width: 50rem; margin:20px auto;">
+ <%= link_to '記事に戻る', @article %><br>
+ <%= link_to '投稿一覧へ', articles_path %>
+</div>

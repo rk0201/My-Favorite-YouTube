@@ -1,15 +1,15 @@
 <div class="card" style="width: 50rem; padding: 20px; margin:0 auto;">
 <%= form_for @user do |form| %>
   <div class="field">
-    <%= form.label :ユーザーID %>
-    <%= form.text_field :login_id %>
-  </div>
-  
-  <div class="field">
-    <%= form.label :ユーザー名 %>
+    <%= form.label :名前 %>
     <%= form.text_field :name %>
   </div>
 
+  <div class="field">
+    <%= form.label :ユーザーネーム %>
+    <%= form.text_field :login_id %>
+  </div>
+  
   <div class="field">
     <%= form.label :アイコン画像 %>
     <%= form.file_field :icon, class: "image" %>

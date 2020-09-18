@@ -15,14 +15,17 @@
     <ul class="navbar-nav ml-auto">
    <!--もしユーザーがログインしているならば下記を表示-->
       <%  if user_signed_in?  %>
-        <li class="nav-item">
-          <%= link_to '投稿', new_article_path, class: "btn btn-primary" %>
+        <li class="nav-item active">
+          <%= link_to 'ホーム', root_path, class: "nav-link" %>
+        </li>
+        <li class="nav-item active">
+          <%= link_to '投稿', new_article_path, class: "nav-link" %>
+        </li>
+        <li class="nav-item active">
+          <%= link_to 'マイページ', current_user, class: "nav-link" %>
         </li>
         <li class="nav-item">
-          <%= link_to 'My Page', current_user, class: "btn btn-primary" %>
-        </li>
-        <li class="nav-item">
-          <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "btn btn-outline-primary" %>
+          <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "nav-link"%>
         </li>
   <!--ログインしていないのなら下記を表示-->
       <% else %>

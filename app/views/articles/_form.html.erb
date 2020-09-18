@@ -13,31 +13,37 @@
   <% end %>
 
   <div class="field">
+    <i class="fas fa-caret-square-right"></i>
     <%= form.label :動画タイトル %>
     <%= form.text_field :title %>
   </div>
 
   <div class="field">
+    <i class="fas fa-tv"></i>
     <%= form.label :チャンネル名 %>
     <%= form.text_field :channnel_name %>
   </div>
   
   <div class="field">
-    <%= form.label :動画リンク %>
+    <i class="fas fa-link"></i>
+    <%= form.label :動画リンク（動画概要欄の共有からリンクを貼り付けてください） %>
     <%= form.text_field :thumbnail %>
   </div>
   
   <div class="field">
+    <i class="far fa-comment"></i>
     <%= form.label :ひとこと %>
     <%= form.text_area :content %>
   </div>
 
   <div class="field">
-    <%= form.label :タグ %>
+    <i class="fas fa-tags"></i>
+    <%= form.label :タグ（複数タグ付する場合は半角のカンマで区切るようにしてください） %>
     <%= form.text_field :tag_list, value:@article.tag_list.join(','), class: "form-control" %>
   </div>
 
   <div class="field">
+    <i class="fas fa-lock-open"></i>
     <%= form.label :公開状況 %>
     <%= form.select :status,  Article.statuses.keys.map {|k| [I18n.t("enums.article.status.#{k}"), k]}  %>
   </div>

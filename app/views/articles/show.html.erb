@@ -1,14 +1,33 @@
+<%# ログインユーザーの場合　%>
+<% if @article.user.id == current_user.id %>
+  <div style="text-align : right; width: 50rem; margin:0 auto;">
+    <i class="fas fa-edit"></i><%= link_to '編集', edit_article_path(@article) %>
+    <i class="fas fa-trash-alt"></i><%= link_to '削除', article_path(@article), method: :delete, data: { confirm: '本当に削除してよろしいですか?' } %>
+    <i class="fas fa-lock-open"></i><%= @article.status_i18n %>
+  </div>
+<% end %>
+
 <div class="card" style="width: 50rem; margin:0 auto;">
   <div class="card-body">
+    
+    <%# ユーザーアイコン　%>
+    <div align="left">
+    <% if @article.user.icon? %>
+      <%= image_tag @article.user.icon.url, width: '20px'  %>
+    <% else %>
+      <image src="/assets/default.png" width= "20px">
+    <% end %>
     
     <%# ユーザー名　%>
     <%= link_to user_path(@article.user)do %>
       　<%= @article.user.name %>
     <% end %>
+    </div>
     
+    <%# 投稿日時　%>
     <div align="right">
     <i class="fas fa-clock"></i>
-      <%= @article.updated_at.strftime("%Y-%m-%d %H:%M") + 'に公開' %>
+      <%= @article.updated_at.strftime("%Y-%m-%d %H:%M") %>
     </div>
   </div>
     
@@ -54,8 +73,8 @@
       
       <% if user_signed_in? %>
         <div class="comment-create">
-          <i class="fas fa-pen-square"></i>
-          <p class="text-left">レビューを投稿する</p>
+          <i class="fas fa-pen-square">レビューを投稿する</i>
+          
           <%= render partial: 'comments/form', locals: { comment: @comment, article: @article } %>
         </div>
       <% end %>
@@ -64,29 +83,13 @@
         <%= render partial: 'comments/index', locals: { comments: @comments } %>
       </div>
     </li>
-    
-    <%# 投稿日時　%>
-    <li class="list-group-item">
-     <p>
-      <i class="fas fa-clock"></i>
-      <%= @article.updated_at.strftime("%Y-%m-%d %H:%M") + 'に公開' %>
-    
-      <%# ログインユーザーの場合　%>
-      <% if @article.user.id == current_user.id %>
-      　<div style="text-align : right">
-          <%= link_to '編集', edit_article_path(@article) %>
-          <%= link_to '削除', article_path(@article), method: :delete, data: { confirm: '本当に削除してよろしいですか?' } %>
-          <%= @article.status_i18n %>
-        </div>
-      <% end %>
-     </p>
-    </li>
   </ul>
   
   
   
 </div>
 
+<div style="width: 50rem; margin:0 auto;">
+ <%= link_to '記事一覧へ', articles_path %>
+</div>
 
-
-<%= link_to '記事一覧へ', articles_path %>

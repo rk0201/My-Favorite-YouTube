@@ -1,6 +1,8 @@
-<h1>Users#edit</h1>
+<h1 style="width: 50rem; margin:20px auto;"><i class="fas fa-edit"></i>ユーザー情報編集</h1>
 
 <%= render 'form', user: @user %>
 
-<%= link_to 'ユーザーページへ', @user %> 
-<%= link_to 'ユーザー一覧', users_path %>
+<div style="width: 50rem; margin:20px auto;">
+ <%= link_to 'ユーザーページに戻る', @user %> <br>
+ <%= link_to 'ユーザー一覧へ', users_path %>
+</div>
