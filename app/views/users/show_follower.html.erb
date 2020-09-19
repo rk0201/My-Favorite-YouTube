@@ -1,8 +1,33 @@
-<h1>フォロワー一覧</h1>
-<% @user.followers.each do |user| %>
-      <tr>
-        <td><h1><%= link_to  user.name,user_path(user) %></h1></td>
-        <td><%= user.login_id %></td>
-        <td><%= image_tag user.icon.url, width: '20%' if user.icon? %></td>
-      </tr>
-<% end %>
+<h1 style="width: 60rem; padding: 20px; margin:0 auto;"><i class="fas fa-users"></i>フォロワー一覧</h1>
+
+<div class="row" style="width: 55rem; margin:0 auto;">
+  <% @user.followers.each do |user| %>
+  <div class="card" style="width: 12rem; margin:12px; padding:10px;">
+    <% if user.icon? %>
+      <%= image_tag user.icon.url, style="width: 100%; margin:auto;" %>
+    <% else %>
+      <%= image_tag '/assets/default.png' , width: '100%' %> 
+    <% end %>
+
+  <div class="card-body">
+    <h5 class="card-title"><%= link_to user_path(user)do %><%= user.name %><% end %></h5>
+      <% if user_signed_in? && user != current_user %>
+      <div id="follow_form">
+        <% if current_user.following?(user) %>
+          <%= form_for(current_user, url: relationship_path(user), method: :delete, remote: true) do |f| %>
+            <%= f.submit "フォロー解除", class: "btn btn-outline-secondary" %>
+          <% end %>
+      
+        <% else %>
+          <%= form_for(current_user, url: relationships_path, method: :post, remote: true) do |f| %>
+            <%= hidden_field_tag :following_id, user.id %>
+            <%= f.submit "フォローする", class: "btn btn-outline-secondary" %>
+          <% end %>
+        <% end %>
+      </div>
+      <% end %>
+    
+  </div>
+  </div>
+  <% end %>
+</div>

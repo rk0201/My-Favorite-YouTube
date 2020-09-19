@@ -1,5 +1,5 @@
 <div class="card" style="width: 50rem; padding: 20px; margin:20px auto;">
-　<div class="container mt-5 px-5">
+　<div class="container mt-1 px-5">
   　<div class="row mt-5">
     <!--左側-->
     <div class="col-md-6 px-5">
@@ -31,10 +31,8 @@
     　
     　<%# フォロー %>
     　<div class="follow">
-      　<%= link_to following_user_path(@user) do %>
-      　フォロー中
-        　　<h5 id="following" style="color: black;"><%= @user.following.count %></h5>人
-      　<% end %>
+    　 
+      　<%= link_to following_user_path(@user) do %>フォロー中<h5 id="following" style="color: black;"><%= @user.following.count %></h5>人<% end %>
    　  </div>
    　
    　<%# フォローボタン %>  

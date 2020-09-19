@@ -11,6 +11,11 @@
   </div>
   
   <div class="field">
+    <%= form.label :メールアドレス %>
+    <%= form.text_field :email %>
+  </div>
+  
+  <div class="field">
     <%= form.label :アイコン画像 %>
     <%= form.file_field :icon, class: "image" %>
     <p><%= form.check_box :remove_icon %>画像を削除する</p>
