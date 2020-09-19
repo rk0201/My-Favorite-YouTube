@@ -31,7 +31,6 @@
     　
     　<%# フォロー %>
     　<div class="follow">
-    　 
       　<%= link_to following_user_path(@user) do %>フォロー中<h5 id="following" style="color: black;"><%= @user.following.count %></h5>人<% end %>
    　  </div>
    　
@@ -46,8 +45,8 @@
     <%# ログインユーザーの場合、編集画面へ %>
     <% if @user.id == current_user.id %>
     　<td>
-    　　<%= link_to "編集", edit_user_path(@user)%>
-    　　<%= link_to 'いいね一覧へ', [@user, :favorites] %>
+    　　<i class="fas fa-edit"></i><%= link_to "編集", edit_user_path(@user)%>
+    　　<i class="fas fa-heart"></i><%= link_to 'いいね一覧へ', [@user, :favorites] %>
     　</td>
 　　<% end %>
       

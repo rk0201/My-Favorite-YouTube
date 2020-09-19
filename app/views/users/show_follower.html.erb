@@ -1,4 +1,4 @@
-<h1 style="width: 60rem; padding: 20px; margin:0 auto;"><i class="fas fa-users"></i>フォロワー一覧</h1>
+<h2 style="width: 60rem; padding: 20px; margin:0 auto;"><i class="fas fa-users"></i>フォロワー一覧</h2>
 
 <div class="row" style="width: 55rem; margin:0 auto;">
   <% @user.followers.each do |user| %>
@@ -10,7 +10,7 @@
     <% end %>
 
   <div class="card-body">
-    <h5 class="card-title"><%= link_to user_path(user)do %><%= user.name %><% end %></h5>
+    <h5 class="card-title"><i class="fas fa-user"></i><%= link_to user_path(user)do %><%= user.name %><% end %></h5>
       <% if user_signed_in? && user != current_user %>
       <div id="follow_form">
         <% if current_user.following?(user) %>
