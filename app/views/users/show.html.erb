@@ -1,39 +1,35 @@
 <div class="card" style="width: 50rem; padding: 20px; margin:20px auto;">
+  
+  
+  
 　<div class="container mt-1 px-5">
-  　<div class="row mt-5">
+  　<div class="row mt-1">
     <!--左側-->
-    <div class="col-md-6 px-5">
+    <div class="col-md-6 ">
         <%# アイコン %>
         <% if @user.icon? %>
-           <%= image_tag @user.icon.url, width: '60%'  %>
+           <%= image_tag @user.icon.url, width: '70%' , style: 'rounded-circle'  %>
         <% else %>
-           <image src="/assets/default.png" width= "60%">
+           <image src="/assets/default.png" width= "70%" style="rounded-circle">
         <% end %> 
         
     </div>
 
     <!--右側-->
-    <div class="col-md-6">
+    <div class="col-md-6 px-3">
       
       <%# ユーザーネーム %>
       <h2 class="name"><%= @user.name %></h2>
       
       <%# ユーザーID %>
-      <p><%= @user.login_id %></p>
+      <p style="color: #808080;"><%= @user.login_id %></p>
       
-      <%# フォロワー %>
+      <%# フォロワー・フォロー %>
       <div class="follower">
-      　<%= link_to followers_user_path(@user) do %>
-      　フォロワー
-          　<h5 id="followers" style="color: black;"><%= @user.followers.count %></h5>人
-      　<% end %>
+        フォロワー<%= link_to followers_user_path(@user) do %><h5 id="followers" style="color: black;"><%= @user.followers.count %></h5><% end %>
+        フォロー中<%= link_to following_user_path(@user) do %><h5 id="following" style="color: black;"><%= @user.following.count %></h5><% end %>
     　</div>
-    　
-    　<%# フォロー %>
-    　<div class="follow">
-      　<%= link_to following_user_path(@user) do %>フォロー中<h5 id="following" style="color: black;"><%= @user.following.count %></h5>人<% end %>
-   　  </div>
-   　
+    
    　<%# フォローボタン %>  
      <div>
        <%= render "follow_form" %>
@@ -44,15 +40,14 @@
      
     <%# ログインユーザーの場合、編集画面へ %>
     <% if @user.id == current_user.id %>
-    　<td>
     　　<i class="fas fa-edit"></i><%= link_to "編集", edit_user_path(@user)%>
     　　<i class="fas fa-heart"></i><%= link_to 'いいね一覧へ', [@user, :favorites] %>
-    　</td>
 　　<% end %>
       
     </div>
-  </div>
-</div>
+    
+    </div>
+　</div>
 </div>
 
 
