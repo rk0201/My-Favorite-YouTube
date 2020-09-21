@@ -1,11 +1,11 @@
 <h2 style="width: 60rem; padding: 20px; margin:0 auto;"><i class="fas fa-users"></i>ユーザー一覧</h2>
 
 
-<div class="row" style="width: 55rem; margin:0 auto;">
+<div class="row" style="width: 55rem; margin: 0 auto;">
   <% @users.each do |user| %>
-  <div class="card" style="width: 12rem; margin:12px; padding:10px;">
+  <div class="card" style="width: 12rem; margin: 12px; padding: 10px;">
     <% if user.icon? %>
-      <%= image_tag user.icon.url, style="width: 100%; margin:auto;" %>
+      <%= image_tag user.icon.url, style="width: 100%; margin: auto;" %>
     <% else %>
       <%= image_tag '/assets/default.png' , width: '100%' %> 
     <% end %>
