@@ -1,5 +1,5 @@
 <% @articles.each do |article| %>
-<div class="card" style="width: 50rem; margin:20px auto;">
+<div class="card" style="width: 50rem; margin:10px auto;">
   <div class="card-body">
     
     <%# ユーザーアイコン　%>
@@ -43,14 +43,10 @@
     <p class="card-channnel">
     <i class="fas fa-tv"></i>
     <%= article.channnel_name %></p>
-  </div>
-
-  
-  <ul class="list-group list-group-flush">
     
     <%# ひとこと・タグ　%>
     <li class="list-group-item">
-      
+      <i class="far fa-comment"></i>
       <%= article.content %>
       <p>
         <% article.tag_list.each do |tag| %>
@@ -58,10 +54,7 @@
         <% end %>
       </p>
     </li>
-    
-    <%# コメント　%>
-     
-    
-  </ul>
+  </div>
+  
 </div>
 <% end %>

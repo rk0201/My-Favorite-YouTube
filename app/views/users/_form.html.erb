@@ -6,14 +6,16 @@
   </div>
 
   <div class="field">
-    <%= form.label :ユーザーネーム %>
+    <%= form.label :ユーザーID %>
     <%= form.text_field :login_id %>
   </div>
   
   <div class="field">
     <%= form.label :メールアドレス %>
-    <%= form.text_field :email %>
+    <%= form.text_field :email, autocomplete: "email" %>
   </div>
+  
+  
   
   <div class="field">
     <%= form.label :アイコン画像 %>

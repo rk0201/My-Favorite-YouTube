@@ -16,6 +16,9 @@ class User < ApplicationRecord
   has_many :following, through: :following_relationships
   has_many :follower_relationships, foreign_key: "following_id", class_name: "Relationship", dependent: :destroy
   has_many :followers, through: :follower_relationships
+  
+  validates :name, presence: true
+  validates :login_id, presence: true, uniqueness: true
 
   #フォローしているかを確認するメソッド
   def following?(user)

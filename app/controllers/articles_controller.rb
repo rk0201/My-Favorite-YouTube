@@ -5,6 +5,7 @@ class ArticlesController < ApplicationController
   # GET /articles
   def index
     @articles = Article.where(status: :public).order(created_at: :desc)
+
     if params[:tag]
       @articles = Article.tagged_with("#{params[:tag]}")
     end
@@ -15,7 +16,6 @@ class ArticlesController < ApplicationController
     @article = Article.find(params[:id])
     @comment = Comment.new 
     @comments = @article.comments.order(created_at: :desc)
-    
   end
 
   # GET /articles/new
@@ -39,7 +39,8 @@ class ArticlesController < ApplicationController
 
     if @article.save
       redirect_to @article, notice: '記事を投稿しました。'
-    
+    else
+      render :edit
     end
   end
 
