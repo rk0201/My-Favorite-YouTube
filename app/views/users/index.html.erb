@@ -5,9 +5,9 @@
   <% @users.each do |user| %>
   <div class="card" style="width: 12rem; margin: 12px; padding: 10px;">
     <% if user.icon? %>
-      <%= image_tag user.icon.url, style="width: 100%; margin: auto;" %>
+      <%= image_tag user.icon.url, style="width: 100%; margin: auto;", class: 'icon_image' %>
     <% else %>
-      <%= image_tag '/assets/default.png' , width: '100%' %> 
+      <%= image_tag '/assets/default.png' , width: '100%' ,class: 'icon_image' %> 
     <% end %>
 
   <div class="card-body">

@@ -8,9 +8,9 @@
     <div class="col-md-6 ">
         <%# アイコン %>
         <% if @user.icon? %>
-           <%= image_tag @user.icon.url, width: '70%' , style: 'rounded-circle'  %>
+           <%= image_tag @user.icon.url, width: '70%' , style: 'rounded-circle', class: 'icon_image'  %>
         <% else %>
-           <image src="/assets/default.png" width= "70%" style="rounded-circle">
+           <image src="/assets/default.png" width= "70%" class = "icon_image">
         <% end %> 
         
     </div>

@@ -5,9 +5,9 @@
     <%# ユーザーアイコン　%>
     <div align="left">
     <% if article.user.icon? %>
-      <%= image_tag article.user.icon.url, width: '40px'  %>
+      <%= image_tag article.user.icon.url, width: '40px' , class: 'icon_image'  %>
     <% else %>
-      <image src="/assets/default.png" width= "40px">
+      <image src="/assets/default.png" width= "40px" class = "icon_image">
     <% end %>
     
     <%# ユーザー名　%>
