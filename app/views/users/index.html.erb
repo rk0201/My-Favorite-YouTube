@@ -12,26 +12,11 @@
 
   <div class="card-body">
     <h5 class="card-title"><i class="fas fa-user"></i><%= link_to user_path(user)do %><%= user.name %><% end %></h5>
-    
-    <% if user_signed_in? && user != current_user %>
-      <div id="follow_form">
-      <% if current_user.following?(user) %>
-        <%= form_for(current_user, url: relationship_path(user), method: :delete, remote: true) do |f| %>
-        <%= f.submit "フォロー解除", class: "btn btn-outline-secondary" %>
-      <% end %>
-      
-      <% else %>
-        <%= form_for(current_user, url: relationships_path, method: :post, remote: true) do |f| %>
-        <%= hidden_field_tag :following_id, user.id %>
-        <%= f.submit "フォローする", class: "btn btn-outline-secondary" %>
-      <% end %>
-    <% end %>
-      </div>
-    <% end %>
-    
+    <p style="color: #808080;"><%= '@'+ user.login_id %></p>
   </div>
+  
   </div>
-<% end %>
+  <% end %>
 </div>
 
 

@@ -22,7 +22,7 @@
       <h2 class="name"><%= @user.name %></h2>
       
       <%# ユーザーID %>
-      <p style="color: #808080;"><%= @user.login_id %></p>
+      <p style="color: #808080;"><%='@' + @user.login_id %></p>
       
       <%# フォロワー・フォロー %>
       <div class="follower">
@@ -58,7 +58,7 @@
     <iframe class="card-img-top" style="width: 18rem; height: 10rem; margin:0 auto; " src="https://www.youtube.com/embed/<%= article.thumbnail%>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
   <div class="card-body">
-    <h5 class="card-title"><%= link_to article.title, article_path(article) %></h5>
+    <h5 class="card-title"><i class="fas fa-caret-square-right"></i><%= link_to article.title, article_path(article) %></h5>
   </div>
   </div>
 <% end %>
