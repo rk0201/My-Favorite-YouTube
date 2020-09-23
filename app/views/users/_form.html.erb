@@ -1,5 +1,19 @@
 <div class="card" style="width: 50rem; padding: 20px; margin:0 auto;">
 <%= form_for @user do |form| %>
+
+  <%#エラーメッセージ%>
+  <% if @user.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
+
+      <ul>
+      <% @user.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
   <div class="field">
     <%= form.label :名前 %>
     <%= form.text_field :name %>
@@ -9,13 +23,6 @@
     <%= form.label :ユーザーID %>
     <%= form.text_field :login_id %>
   </div>
-  
-  <div class="field">
-    <%= form.label :メールアドレス %>
-    <%= form.text_field :email, autocomplete: "email" %>
-  </div>
-  
-  
   
   <div class="field">
     <%= form.label :アイコン画像 %>

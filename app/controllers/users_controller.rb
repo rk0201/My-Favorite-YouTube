@@ -6,6 +6,11 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    if current_user == @user
+      @articles = @user.articles.order(created_at: :desc)
+    else
+      @articles = @user.articles.where(status: :public).order(created_at: :desc)
+    end
   end
 
   def edit

@@ -14,12 +14,18 @@
 }
 
 .nav-link{
-  
+  font-family: 'Osaka',sans-serif;
+}
+
+.navbar{
+  border: 1px solid;
+  border-color: #DDDDDD;
 }
 
 .navbar-brand{
   font-family: 'SignPainter',sans-serif;
   font-size: 30px;
+  margin-left: 5px;
 }
 
 main {
@@ -32,6 +38,8 @@ main {
 footer {
   height: 60px;
   bottom: 0;
+  border: 1px solid;
+  border-color: #DDDDDD;
 }
 
 .bg-home {
