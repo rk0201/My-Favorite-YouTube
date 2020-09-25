@@ -40,7 +40,7 @@ class ArticlesController < ApplicationController
     if @article.save
       redirect_to @article, notice: '記事を投稿しました。'
     else
-      render :edit
+      render :new
     end
   end
 

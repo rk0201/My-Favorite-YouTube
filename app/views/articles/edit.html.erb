@@ -1,8 +1,59 @@
 <h2 style="width: 50rem; margin:20px auto;"><i class="fas fa-edit"></i> 記事の編集</h2>
 
-<%= render 'form', article: @article %>
+<div class="card" style="width: 50rem; padding: 20px; margin:0 auto;">
+<%= form_with(model: @article, local: true) do |form| %>
+
+　<%#エラーメッセージ%>
+  <% if @article.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@article.errors.count, "error") %> prohibited this article from being saved:</h2>
+
+      <ul>
+      <% @article.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <i class="fas fa-caret-square-right"></i>
+    <%= form.label :動画タイトル %>
+    <%= form.text_field :title %>
+  </div>
+
+  <div class="field">
+    <i class="fas fa-tv"></i>
+    <%= form.label :チャンネル名 %>
+    <%= form.text_field :channnel_name %>
+  </div>
+  
+  <div class="field">
+    <i class="far fa-comment"></i>
+    <%= form.label :ひとこと %>
+    <%= form.text_area :content %>
+  </div>
+
+  <div class="field">
+    <i class="fas fa-tags"></i>
+    <%= form.label :タグ（複数タグを付ける場合は半角カンマで区切るようにしてください） %>
+    <%= form.text_field :tag_list, value:@article.tag_list.join(','), class: "form-control" %>
+  </div>
+
+  <div class="field">
+    <i class="fas fa-lock-open"></i>
+    <%= form.label :公開状況 %>
+    <%= form.select :status,  Article.statuses.keys.map {|k| [I18n.t("enums.article.status.#{k}"), k]}  %>
+  </div>
+  
+  <div class="actions">
+    <%= form.submit %>
+    <%= link_to '記事を削除', article_path(@article), method: :delete, data: { confirm: '本当に削除してよろしいですか?'}  , class: 'btn btn-danger' %>
+  </div>
+  
+<% end %>
+</div>
 
 <div style="width: 50rem; margin:20px auto;">
  <%= link_to '記事に戻る', @article %><br>
- <%= link_to '投稿一覧へ', articles_path %>
 </div>
