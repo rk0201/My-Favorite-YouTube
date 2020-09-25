@@ -2,7 +2,7 @@
 <% if @article.user.id == current_user.id %>
   <div style="text-align : right; width: 50rem; margin:10px auto;">
     <i class="fas fa-edit"></i><%= link_to '編集', edit_article_path(@article) %>
-    <i class="fas fa-lock-open"></i><%= @article.status_i18n %>
+    <i class="far fa-eye"></i><%= @article.status_i18n %>
   </div>
 <% end %>
 
