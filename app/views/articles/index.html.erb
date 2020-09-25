@@ -27,17 +27,17 @@
   <iframe class="card-img-top" style="width: 50rem; height: 28rem; margin:0 auto; " src="https://www.youtube.com/embed/<%= article.thumbnail%>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
   
   <div class="card-body">
-    <h3 class="card-title">
+    <h4 class="card-title">
       
       <%# タイトル　%>
       <i class="fas fa-caret-square-right"></i>
-      <%= link_to article.title, article_path(article) %>
+      <%= article.title %>
       
       <%# いいね　%>
       <div class="favorites_buttons_<%= article.id %>">
         <%= render partial: 'favorites/favorite', locals: {article: article} %>
   　　</div>
-    </h3>
+    </h4>
     
     <%# チャンネル名　%>
     <p class="card-channnel">
