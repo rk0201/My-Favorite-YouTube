@@ -8,6 +8,7 @@ gem 'rails', '~> 5.2.4', '>= 5.2.4.3'
 # Herokuで使用
 group :production do
   gem 'pg'
+  gem 'fog-aws'
 end
 # Use Puma as the app server
 gem 'puma', '~> 3.11'
@@ -80,4 +81,3 @@ gem 'rails-i18n'
 gem 'enum_help' 
 
 gem 'acts-as-taggable-on', '~> 6.0'
-gem 'fog-aws'
