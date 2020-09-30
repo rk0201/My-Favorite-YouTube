@@ -8,6 +8,6 @@ if Rails.env.production?
       :aws_access_key_id     => 'AKIA4HS3EDINH63LQLSC',
       :aws_secret_access_key => '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'
     }
-    config.fog_directory     =  'favo-youtube'
+    config.fog_directory     =  'fv-youtube'
   end
 end
