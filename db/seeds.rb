@@ -19,3 +19,17 @@ User.create!(
    login_id: 'test2',
    password: 'test02',
 )
+
+User.create!(
+   email: 'test3@test.com',
+   name: 'テスト3',
+   login_id: 'test3',
+   password: 'test03',
+)
+
+User.create!(
+   email: 'test4@test.com',
+   name: 'テスト4',
+   login_id: 'test4',
+   password: 'test04',
+)

@@ -1,5 +1,6 @@
 class Article < ApplicationRecord
   acts_as_taggable
+  mount_uploader :icon, IconUploader
   belongs_to :user
   has_many :favorites,dependent: :destroy
   has_many :comments,dependent: :destroy

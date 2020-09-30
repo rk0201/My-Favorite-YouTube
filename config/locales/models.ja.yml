@@ -6,3 +6,10 @@ ja:
         password: パスワード
         password_confirmation: 確認用パスワード
         remember_me: 次回から自動的にログイン
+        name: ユーザー名
+        login_id: ユーザーID
+        icon: アイコン画像
+      article:
+        title: 動画タイトル
+        channnel_name: チャンネル名
+        thumbnail: 動画リンク
