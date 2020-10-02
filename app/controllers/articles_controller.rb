@@ -56,7 +56,7 @@ class ArticlesController < ApplicationController
   # DELETE /articles/1
   def destroy
     @article.destroy
-    redirect_to articles_url, notice: '投稿を削除しました。'
+     redirect_to articles_url, notice: '投稿を削除しました。'
   end
 
   private
