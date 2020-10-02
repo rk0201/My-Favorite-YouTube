@@ -1,6 +1,7 @@
 if Rails.env.production?
   CarrierWave.configure do |config|
     config.fog_provider = 'fog/aws'
+    config.asset_host = 'https://fv-youtube.s3.amazonaws.com'
     config.fog_credentials = {
       # Amazon S3用の設定
       provider:               'AWS',
