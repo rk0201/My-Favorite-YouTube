@@ -48,7 +48,7 @@
     
     <%# ひとこと・タグ　%>
     <li class="list-group-item">
-      <i class="far fa-comment"></i>
+      <p class="m-0" style="font-weight:bold;"><i class="far fa-comment"></i><%= link_to user_path(@article.user)do %><%= @article.user.name %><% end %></p>
       <%= @article.content %>
       <p>
         <% @article.tag_list.each do |tag| %>
