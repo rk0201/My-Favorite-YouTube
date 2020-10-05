@@ -1,7 +1,7 @@
 # README
 
 
-#概要
+# 概要
 * アプリ名：My Favorite YouTube
 * デプロイ先：https://ancient-anchorage-55032.herokuapp.com/
 
