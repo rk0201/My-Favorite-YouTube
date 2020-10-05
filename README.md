@@ -5,7 +5,11 @@
 * アプリ名：My Favorite YouTube
 * デプロイ先：https://ancient-anchorage-55032.herokuapp.com/
 
+# フレームワーク
 
+# 使い方
+* 「新規作成」にてアカウントを作成。
+* 
 This README would normally document whatever steps are necessary to get the
 application up and running.
 
