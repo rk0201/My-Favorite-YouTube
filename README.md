@@ -1,5 +1,11 @@
 # README
 
+
+#概要
+・アプリ名：My Favorite YouTube
+・デプロイ先：https://ancient-anchorage-55032.herokuapp.com/
+
+
 This README would normally document whatever steps are necessary to get the
 application up and running.
 
