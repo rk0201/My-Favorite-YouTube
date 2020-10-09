@@ -17,18 +17,21 @@
   <div class="field">
     <i class="fas fa-caret-square-right"></i>
     <%= form.label :動画タイトル %>
+    <span class="badge badge-danger">必須</span>
     <%= form.text_field :title %>
   </div>
 
   <div class="field">
     <i class="fas fa-tv"></i>
     <%= form.label :チャンネル名 %>
+    <span class="badge badge-danger">必須</span>
     <%= form.text_field :channnel_name %>
   </div>
   
   <div class="field">
     <i class="fas fa-link"></i>
-    <%= form.label :動画リンク（動画概要欄の共有からリンクを貼り付けてください） %>
+    <%= form.label :動画リンク（動画概要欄の共有からリンクを貼ってください） %>
+    <span class="badge badge-danger">必須</span>
     <%= form.text_field :thumbnail %>
   </div>
   
@@ -40,7 +43,7 @@
 
   <div class="field">
     <i class="fas fa-tags"></i>
-    <%= form.label :タグ（複数タグを付ける場合は半角カンマで区切るようにしてください） %>
+    <%= form.label :タグ（複数タグを付ける場合は半角カンマで区切ってください） %>
     <%= form.text_field :tag_list, value:@article.tag_list.join(','), class: "form-control" %>
   </div>
 
