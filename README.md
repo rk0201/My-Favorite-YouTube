@@ -1,11 +1,17 @@
-# README
+# My Favorite YouTube
 
 
 # 概要
-* アプリ名：My Favorite YouTube
-* デプロイ先：https://ancient-anchorage-55032.herokuapp.com/
+* 私のお気に入りの動画・クリエイターをみんなに知ってもらうSNS型ウェブアプリ。
 
-# フレームワーク
+# URL
+* https://ancient-anchorage-55032.herokuapp.com/
+
+# 作成したきっかけ
+* 私自信YouTubeが好きであること。そしておすすめのYouTube動画やクリエイターを多くの人に知ってもらえるプラットフォームがあればと思ったこと。また、他ユーザーのおすすめを知れることで、今まで知らなかった動画やクリエイターはもちろん、同じ嗜好を持ったユーザーを発見できると思い、YouTube動画に特化したSNS型ウェブアプリを作成しました。
+
+# 機能一覧
+## 認証機能
 
 # 使い方
 * 「新規作成」にてアカウントを作成。
