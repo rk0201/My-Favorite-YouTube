@@ -9,7 +9,7 @@
 
 # 使い方
 * 「新規作成」にてアカウントを作成。
-* 
+* お気に入りの動画を見つけたら「新規投稿」から記事を作成。
 This README would normally document whatever steps are necessary to get the
 application up and running.
 
