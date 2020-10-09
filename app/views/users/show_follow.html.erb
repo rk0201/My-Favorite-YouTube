@@ -1,4 +1,4 @@
-<h4 style="width: 55rem; padding: 0px; margin: 20px auto; font-weight:bold; text-align:center;"><i class="fas fa-user"></i>フォロー中</h4>
+<h4 style="width: 50rem; margin:20px auto; text-align:center; font-family: 'Microsoft Sans Serif',sans-serif; font-weight:bold;"><i class="fas fa-user"></i>フォロー中</h4>
 
 <div class="row" style="width: 55rem; margin: 0 auto;">
   <% @user.following.each do |user| %>
@@ -10,7 +10,7 @@
     <% end %>
 
   <div class="card-body">
-    <h6 class="card-title" style="font-weight:bold;"><i class="fas fa-user"></i><%= link_to user_path(user)do %><%= user.name %><% end %></h6>
+    <h5 class="card-title" style="font-weight:bold;"><i class="fas fa-user"></i><%= link_to user_path(user)do %><%= user.name %><% end %></h5>
     <p style="color: #808080;"><%= '@'+ user.login_id %></p>
   </div>
   
