@@ -67,31 +67,14 @@
 * いいねした記事はいいね一覧ページにて表示
  
 
+# 取り入れた技術
+* devise(ログイン機能)
+* CarrierWave(画像アップロード機能)
+* S3(クラウド上への画像管理)
+* YouTube URLから動画の埋め込み表示
+* Ajax(いいねボタンとフォローボタンの非同期処理)
+* acts-as-taggable-on(タグ作成機能)
+* enum(記事の公開非公開設定)
+* heroku(デプロイ設定)
 
-# 使い方
 
-
-* お気に入りの動画を見つけたら「新規投稿」から記事を作成。
-
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
