@@ -1,5 +1,5 @@
 # My Favorite YouTube
-<image src="/assets/favoyoutube.png">
+![My Favorite YouTube](/assets/favoyoutube.png "favoyoutube")
 
 
 # 概要
