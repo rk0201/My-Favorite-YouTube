@@ -1,8 +1,8 @@
 # My Favorite YouTube
-* ![My Favorite YouTube](/assets/images/favoyoutube.png "favoyoutube")
+![My Favorite YouTube](/assets/images/favoyoutube.png "favoyoutube")
 
 
-# 概要
+# コンセプト
 * 私のお気に入りの動画・クリエイターをみんなに知ってもらうSNS型ウェブアプリ。
 
 # URL
@@ -13,6 +13,9 @@
 
 # 機能一覧
 ## 認証機能
+* サインイン、サインアップ機能(devise)
+  -email、パスワード、ユーザー名、ユーザーID必須
+*パスワード編集機能
 
 # 使い方
 
