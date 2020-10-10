@@ -1,7 +1,5 @@
 # My Favorite YouTube
-<p align="center">
-  <img src="/assets/favoyoutube.png" width=70%>  
-</p>　
+<img width="1437" alt="favoyoutube" src="https://user-images.githubusercontent.com/64642370/95655736-52d05a00-0b44-11eb-80ac-a791dce0c213.png">
 
 ## URL
 * https://ancient-anchorage-55032.herokuapp.com/
