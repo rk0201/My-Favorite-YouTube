@@ -14,10 +14,10 @@ User.create!(
 )
 
 User.create!(
-   email: 'test2@test.com',
-   name: 'テスト2',
-   login_id: 'test2',
-   password: 'test02',
+   email: 'test0@test.com',
+   name: 'テスト',
+   login_id: 'test0',
+   password: '00test',
 )
 
 User.create!(
