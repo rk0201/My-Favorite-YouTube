@@ -17,4 +17,6 @@ Rails.application.routes.draw do
     resources :comments, only: [:create, :destroy]
   end
   get 'tags/:tag', to: 'articles#index', as: :tag
+  
+  post '/home/guest_sign_in', to: 'home#new_guest'
 end
