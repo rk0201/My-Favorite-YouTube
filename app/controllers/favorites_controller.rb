@@ -3,7 +3,7 @@ class FavoritesController < ApplicationController
   def index
     @articles = Article.joins(:favorites).where(favorites: { user_id: params[:user_id] }, status: :public)
   end
-  
+
   def create
     @article = Article.find(params[:article_id])
     favorite = current_user.favorites.build(article_id: params[:article_id])

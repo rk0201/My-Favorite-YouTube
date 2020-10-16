@@ -7,29 +7,29 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 User.create!(
-   email: 'test1@test.com',
-   name: 'テスト1',
-   login_id: 'test1',
-   password: 'test01',
+  email: 'test1@test.com',
+  name: 'テスト1',
+  login_id: 'test1',
+  password: 'test01'
 )
 
 User.create!(
-   email: 'test0@test.com',
-   name: 'テスト',
-   login_id: 'test0',
-   password: '00test',
+  email: 'test0@test.com',
+  name: 'テスト',
+  login_id: 'test0',
+  password: '00test'
 )
 
 User.create!(
-   email: 'test3@test.com',
-   name: 'テスト3',
-   login_id: 'test3',
-   password: 'test03',
+  email: 'test3@test.com',
+  name: 'テスト3',
+  login_id: 'test3',
+  password: 'test03'
 )
 
 User.create!(
-   email: 'test4@test.com',
-   name: 'テスト4',
-   login_id: 'test4',
-   password: 'test04',
+  email: 'test4@test.com',
+  name: 'テスト4',
+  login_id: 'test4',
+  password: 'test04'
 )

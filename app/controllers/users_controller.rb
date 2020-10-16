@@ -6,11 +6,11 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    if current_user == @user
-      @articles = @user.articles.order(created_at: :desc)
-    else
-      @articles = @user.articles.where(status: :public).order(created_at: :desc)
-    end
+    @articles = if current_user == @user
+                  @user.articles.order(created_at: :desc)
+                else
+                  @user.articles.where(status: :public).order(created_at: :desc)
+                end
   end
 
   def edit
@@ -21,7 +21,7 @@ class UsersController < ApplicationController
       render :edit
     end
   end
-  
+
   def update
     @user = User.find(params[:id])
     if @user.update(user_params)
@@ -30,7 +30,7 @@ class UsersController < ApplicationController
       render :edit
     end
   end
-  
+
   def following
     @user  = User.find(params[:id])
     @users = @user.following
@@ -42,10 +42,10 @@ class UsersController < ApplicationController
     @users = @user.followers
     render 'show_follower'
   end
-  
-  private
-  def user_params
-    params.require(:user).permit(:login_id, :name, :icon, :profile, :remove_icon, :email, :password )
-  end
 
+  private
+
+  def user_params
+    params.require(:user).permit(:login_id, :name, :icon, :profile, :remove_icon, :email, :password)
+  end
 end

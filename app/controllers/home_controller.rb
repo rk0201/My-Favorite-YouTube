@@ -1,9 +1,9 @@
 class HomeController < ApplicationController
-    def index
-     redirect_to articles_path if user_signed_in?
-    end
-    
-    def new_guest
+  def index
+    redirect_to articles_path if user_signed_in?
+  end
+
+  def new_guest
     user = User.find_or_create_by!(email: 'guest@example.com') do |user|
       user.name = 'ゲスト'
       user.login_id = 'guestuser'
@@ -12,5 +12,5 @@ class HomeController < ApplicationController
     end
     sign_in user
     redirect_to root_path, notice: 'ゲストユーザーとしてログインしました。'
-    end
+  end
 end
